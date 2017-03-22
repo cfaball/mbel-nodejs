@@ -1,0 +1,39 @@
+---
+swagger: "2.0"
+info:
+  description: "gestion utilisateur"
+  version: "0.9.0"
+  title: "User API"
+host: "localhost:3000"
+schemes:
+- "http"
+produces:
+- "application/json"
+paths:
+  /user:
+    get:
+      summary: "authentifier un user"
+      description: "Lecture des produits"
+      operationId: "userGET"
+      parameters:
+      - name: "login"
+        in: "query"
+        description: "login du user."
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "password du user."
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "chaine vrai / faux"
+          schema:
+            type: "boolean"
+        default:
+          description: "toujours faux"
+          schema:
+            type: "boolean"
+      x-swagger-router-controller: "Default"
+definitions: {}
